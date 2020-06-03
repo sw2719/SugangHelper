@@ -1,4 +1,6 @@
 # SugangHelper
+exe 파일 다운로드는 [여기](https://github.com/sw2719/SugangHelper/releases)
+
 ![ex](https://user-images.githubusercontent.com/22590718/83693043-2b1a3400-a630-11ea-91ca-74ee95694211.gif)
 
  수동으로 텍스트를 복사할 필요 없이 Ctrl+V 를 감지할 때마다 자동으로 텍스트를 클립보드로 복사해주는 프로그램입니다.
