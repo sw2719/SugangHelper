@@ -61,5 +61,5 @@ class SugangHelper:
                 print(f'다음 복사할 텍스트: {self.data[self.line_selector + 1]}')
 
 
-watcher = SugangHelper()
+SugangHelper()
 pythoncom.PumpMessages()
