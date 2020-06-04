@@ -26,24 +26,23 @@ class SugangHelper:
         self.loadclipboard(init=True)
 
     def keypress_event(self, event):
-        try:
-            if event.KeyID == 86 and self.ctrl_var is True:  # Ctrl 키가 이전에 입력되었고 V가 입력된 경우
-                self.loadclipboard()
+        if event.KeyID == 86 and self.ctrl_var is True:  # Ctrl 키가 이전에 입력되었고 V가 입력된 경우
+            self.loadclipboard()
 
-                if self.line_selector + 1 == len(self.data):
-                    self.hm.UnhookKeyboard()
-                    print('-------------------------------')
-                    print('마지막 줄이 복사되었습니다.\n')
-                    print('창 상단의 닫기 버튼을 눌러 종료하세요.')
-                    pythoncom.PostQuitMessage(0)
-                else:
-                    self.line_selector = self.line_selector + 1
-            elif event.KeyID == 162:  # Ctrl 키가 입력된 경우
-                self.ctrl_var = True
-            else:  # Ctrl, V 이외의 키가 입력된 경우
-                self.ctrl_var = False
-        finally:
-            return True
+            if self.line_selector + 1 == len(self.data):
+                self.hm.UnhookKeyboard()
+                print('-------------------------------')
+                print('마지막 줄이 복사되었습니다.\n')
+                input('Enter 키를 눌러 종료...')
+                sys.exit()
+            else:
+                self.line_selector = self.line_selector + 1
+        elif event.KeyID == 162:  # Ctrl 키가 입력된 경우
+            self.ctrl_var = True
+        else:  # Ctrl, V 이외의 키가 입력된 경우
+            self.ctrl_var = False
+
+        return True
 
     def loadclipboard(self, init=False):
         text_target = self.data[self.line_selector]
